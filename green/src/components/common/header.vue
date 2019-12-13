@@ -5,9 +5,7 @@
       :index="item.name"
       :key="item.title"
       @click="handleSelect(item.path, item.name)"
-    >
-      {{ item.title }}
-    </el-menu-item>
+    >{{ item.title }}</el-menu-item>
   </el-menu>
 </template>
 <script>
@@ -20,29 +18,23 @@ export default {
       { title: "订单管理", name: "3", path: "/list/order" }
     ];
     const maptype = {
-      "/admin/number": "0",
-      "/element/table": "1",
-      "/instance/base64": "2",
-      "/list/order": "3"
+      admin: "0",
+      element: "1",
+      instance: "2",
+      list: "3"
     };
     return {
-      activeIndex: "0",
+      activeIndex: "",
       menu,
       maptype
     };
   },
-
   mounted() {
-    this.activeIndex = this.maptype[this.$route.path];
-    this.init(this.activeIndex);
+    this.activeIndex = this.maptype[this.$route.path.split("/")[1]];
   },
   methods: {
-    init(index) {
-      this.$store.dispatch("currentIndex", index);
-    },
     handleSelect(path, name) {
       this.activeIndex = name;
-      this.init(name);
       this.$router.push(path);
     }
   }

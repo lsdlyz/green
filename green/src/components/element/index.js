@@ -1,3 +1,3 @@
 import Table from "./table";
-
-export default { Table };
+import Container from "./container";
+export default { Table, Container };

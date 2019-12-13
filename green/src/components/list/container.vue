@@ -1,27 +1,26 @@
 <template>
-  <div class="home">
+  <div>
     <pageContainer :menu="menu"></pageContainer>
   </div>
 </template>
 <script>
 import pageContainer from "@/components/common/pageContainer";
-import Home from "@/components/home/container";
-import Admin from "@/components/admin";
+import List from "@/components/list";
 export default {
   components: { pageContainer },
   data() {
     const menu = [
       {
-        path: "/home",
-        name: "home",
-        component: Home,
-        redirect: "/admin/number",
+        path: "/list/order",
+        name: "order",
+        component: List.Container,
+        redirect: "/list/order",
+        meta: { role: 3, text: "订单" },
         children: [
           {
-            path: "/admin/number",
-            name: "number",
-            component: Admin.Number,
-            meta: { role: 0, text: "数字" }
+            path: "/list/order",
+            name: "order",
+            component: List.Order
           }
         ]
       }

@@ -1,10 +1,31 @@
 <template>
-  <pageContainer></pageContainer>
+  <el-container>
+    <el-header>
+      <Header></Header>
+    </el-header>
+    <el-container>
+      <el-aside width="200px">
+        <Aside :menu="menu"></Aside>
+      </el-aside>
+      <el-container>
+        <el-main>
+          <router-view />
+        </el-main>
+      </el-container>
+    </el-container>
+  </el-container>
 </template>
 <script>
-import pageContainer from "@/components/common/pageContainer";
+import Header from "./header";
+import Aside from "./aside";
 export default {
-  components: { pageContainer }
+  components: { Header, Aside },
+  props: {
+    menu: Array
+  },
+  mounted() {
+    console.log(this.menu);
+  }
 };
 </script>
 <style lang="scss" scoped>

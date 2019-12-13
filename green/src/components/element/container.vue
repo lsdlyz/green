@@ -5,23 +5,23 @@
 </template>
 <script>
 import pageContainer from "@/components/common/pageContainer";
-import Home from "@/components/home/container";
-import Admin from "@/components/admin";
+import Element from "@/components/element";
 export default {
   components: { pageContainer },
   data() {
     const menu = [
       {
-        path: "/home",
-        name: "home",
-        component: Home,
-        redirect: "/admin/number",
+        path: "/element/table",
+        name: "table",
+        component: Element.Container,
+        meta: { role: 1, text: "表格" },
+        redirect: "/element/table",
         children: [
           {
-            path: "/admin/number",
-            name: "number",
-            component: Admin.Number,
-            meta: { role: 0, text: "数字" }
+            path: "/element/table",
+            name: "table",
+            component: Element.Table,
+            meta: { role: 1, text: "表格" }
           }
         ]
       }

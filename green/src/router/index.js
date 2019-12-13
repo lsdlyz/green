@@ -23,45 +23,54 @@ export const routes = [
         name: "number",
         component: Admin.Number,
         meta: { role: 0, text: "数字" }
-      },
+      }
+    ]
+  },
+  {
+    path: "/element/table",
+    name: "table",
+    component: Element.Container,
+    meta: { role: 1, text: "表格" },
+    redirect: "/element/table",
+    children: [
       {
         path: "/element/table",
         name: "table",
         component: Element.Table,
         meta: { role: 1, text: "表格" }
-      },
+      }
+    ]
+  },
+  {
+    path: "/instance/base64",
+    name: "base64",
+    component: Instance.Container,
+    redirect: "/instance/base64",
+    meta: { role: 2, text: "事例" },
+    children: [
       {
-        path: "/instance",
+        path: "/instance/base64",
         name: "base64",
-        component: Instance.Base,
-        redirect: "/instance/base64",
-        meta: { role: 2, text: "事例" },
-        children: [
-          {
-            path: "/instance/base64",
-            name: "base64",
-            component: Instance.Base
-          },
-          {
-            path: "/instance/compiler",
-            name: "compiler",
-            component: Instance.Compiler
-          }
-        ]
+        component: Instance.Base
       },
       {
-        path: "/list",
+        path: "/instance/compiler",
+        name: "compiler",
+        component: Instance.Compiler
+      }
+    ]
+  },
+  {
+    path: "/list/order",
+    name: "order",
+    component: List.Container,
+    redirect: "/list/order",
+    meta: { role: 3, text: "订单" },
+    children: [
+      {
+        path: "/list/order",
         name: "order",
-        component: List.Order,
-        redirect: "/list/order",
-        meta: { role: 3, text: "订单" },
-        children: [
-          {
-            path: "/list/order",
-            name: "order",
-            component: List.Order
-          }
-        ]
+        component: List.Order
       }
     ]
   },
